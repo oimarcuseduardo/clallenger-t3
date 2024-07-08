@@ -14,7 +14,7 @@ model Event {
   content   String
   address   String
   date      DateTime
-  status    STATUS_PUBLICATIONS @default(DRAFT)
+  status    STATUS_PUBLICATIONS @default(PUBLIC)
   createdAt DateTime            @default(now())
   updatedAt DateTime            @updatedAt
 

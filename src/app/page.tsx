@@ -23,7 +23,7 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <Container className="relative grid w-full grid-cols-4 gap-4 rounded py-4">
+          <Container className="relative grid w-full md:grid-cols-4 gap-4 rounded py-4 sm:grid-cols-1 sm:gap-1">
             {getAllEvents.map(item => (
               <Porter
               key={item.id}
