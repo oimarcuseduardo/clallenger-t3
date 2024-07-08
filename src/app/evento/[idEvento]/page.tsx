@@ -21,7 +21,7 @@ const Evento = async ({ params }: Props) => {
           Data:
         </div>
         <div className="font-semibold text-sm text-base ml-2">
-          event?.date && {format(new Date(), 'dd/MM/yyyy - HH:mm')}
+          {event?.date && format(event?.date, 'dd/MM/yyyy - HH:mm')}
         </div>
       </div>
       <div className="w-full flex flex-row mt-2 items-center">
