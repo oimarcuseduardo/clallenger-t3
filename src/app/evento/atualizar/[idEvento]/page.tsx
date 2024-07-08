@@ -255,19 +255,19 @@ const Editar = (props: Props) => {
             <div className="font-sans text-base font-semibold text-pink-400">
               Deseja publicar o evento?
             </div>
-            <div className="mt-3 flex w-full flex-row">
-              <div className="mr-4 flex flex-row">
+            <div className="mt-3 flex w-3 flex-col">
+              <div className="flex flex-row content-between">
                 <Input
                   type="radio"
                   name="status"
                   id="status"
                   onChange={handleChange}
                   placeholder="Descreva o evento com a maior quantidade de detalhes poss[ivel"
-                  className="w-full px-3 py-3 text-sm font-extralight"
+                  className="text-sm font-extralight"
                   value="Sim"
                   defaultChecked
                 />{" "}
-                <div className="ml-3">Sim</div>
+                <div className="ml-1">Sim</div>
               </div>
               <div className="flex flex-row">
                 <Input
@@ -276,10 +276,10 @@ const Editar = (props: Props) => {
                   id="status"
                   onChange={handleChange}
                   placeholder="Descreva o evento com a maior quantidade de detalhes poss[ivel"
-                  className="w-full px-3 py-3 text-sm font-extralight"
+                  className="text-sm font-extralight"
                   value="Não"
                 />{" "}
-                <div className="ml-3">Não</div>
+                <div className="ml-1">Não</div>
               </div>
             </div>
           </div>
