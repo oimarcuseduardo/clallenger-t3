@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id        Int                 @id @default(autoincrement())
+  title     String
+  content   String
+  address   String
+  date      DateTime
+  status    STATUS_PUBLICATIONS @default(DRAFT)
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+
+  @@index([id, date])
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  UserPassword UserPassword?
+
+  @@index([email])
+}
+
+enum STATUS_PUBLICATIONS {
+  PUBLIC
+  DRAFT
+}
+
+model UserPassword {
+  id       Int    @id @default(autoincrement())
+  password String
+  userId   Int    @unique
+  user     User   @relation(fields: [userId], references: [id])
+}

@@ -1,0 +1,4 @@
+export enum STATUS_PUBLICATION {
+  PUBLIC,
+  DRAFT
+}
