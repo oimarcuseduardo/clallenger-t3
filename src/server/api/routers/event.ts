@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "chl/server/api/trpc";
 import { STATUS_PUBLICATIONS } from "@prisma/client";
+import { registrationSFormchema } from "@helpers";
 
 export const eventRouter = createTRPCRouter({
   hello: publicProcedure
@@ -14,21 +15,15 @@ export const eventRouter = createTRPCRouter({
 
   create: publicProcedure
     .input(
-      z.object({
-        title: z.string().min(1),
-        date: z.date(),
-        content: z.string(),
-        address: z.string(),
-      }),
+      registrationSFormchema
     )
     .mutation(async ({ ctx, input }) => {
-      // simulate a slow db call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       return ctx.db.event.create({
         data: {
           title: input.title,
-          date: input.date,
+          date: new Date(input.date).toISOString(),
           content: input.content,
           address: input.address,
         },
@@ -36,13 +31,7 @@ export const eventRouter = createTRPCRouter({
     }),
     update: publicProcedure
     .input(
-      z.object({
-        id: z.number(),
-        title: z.string().min(1),
-        date: z.date(),
-        content: z.string(),
-        address: z.string(),
-      }),
+      registrationSFormchema
     )
     .mutation(async ({ ctx, input }) => {
       // simulate a slow db call
