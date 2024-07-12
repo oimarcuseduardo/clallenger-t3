@@ -29,7 +29,8 @@
       "chl/*": ["./src/*"],
       "@commons/components": ["./src/app/common/components/index"],
       "@commons/types": ["./src/app/common/types/index"],
-      "@helpers": ["./src/app/helpers/index"]
+      "@helpers": ["./src/app/helpers/index"],
+      "@routes": ["./src/settings/routes"]
     }
   },
   "include": [

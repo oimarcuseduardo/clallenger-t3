@@ -4,5 +4,6 @@ export type PorterType = {
   title: string;
   description: string;
   date: Date;
+  editable?: boolean;
   deleteItem?: () => void
 }
